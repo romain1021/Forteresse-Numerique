@@ -1,8 +1,7 @@
 <?php
-// Connexion à la base de données
 $servername = "localhost";
-$username = "root"; // Remplacez par votre nom d'utilisateur MySQL
-$password = ""; // Remplacez par votre mot de passe MySQL
+$username = "root"; 
+$password = "";
 $dbname = "escape_game";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -15,6 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = $_POST['username'];
     $password = $_POST['password'];
     $sql = "SELECT code FROM users WHERE username='$username' AND password='$password'";
+    echo $sql;
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {

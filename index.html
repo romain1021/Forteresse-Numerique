@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Défi 1 : Coffre Numérique</title>
+  <title>Escape Game Numérique</title>
   <style>
     body {
       background-color: #121212;
@@ -34,12 +34,15 @@
   </style>
 </head>
 <body>
-  <h1>Défi 1 : Le Coffre Numérique</h1>
-  <p>Connectez-vous pour ouvrir le coffre :</p>
+  <h1>Défi 1 : L'ouverture du coffre numérique</h1>
+  <p>Le joueur commence devant un coffre numérique verrouillé. Pour y accéder, il doit se connecter en contournant le formulaire de connexion.</p>
+  <p>Ce formulaire est vulnérable à une attaque par injection SQL.</p>
   <form method="POST" action="process.php">
-    <input type="text" name="username" placeholder="Nom d'utilisateur" required><br>
-    <input type="password" name="password" placeholder="Mot de passe" required><br>
+    <input type="text" name="username" placeholder="Nom d'utilisateur" ><br>
+    <input type="password" name="password" placeholder="Mot de passe" ><br>
     <button type="submit">Connexion</button>
   </form>
+  <p>Objectif: Manipuler le formulaire de connexion pour insérer une requête SQL malveillante et obtenir le code caché dans la base de données.</p>
+  <p>Mécanisme: Une fois le code découvert, collez-le dans l'URL de la page suivante (par exemple page2.php?code=B7R8J2D) pour accéder au défi suivant.</p>
 </body>
 </html>

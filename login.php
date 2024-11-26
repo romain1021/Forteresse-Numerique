@@ -5,10 +5,11 @@ require_once("config.php");
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     if (isset($_POST['username']) && isset($_POST['password'])) {
-        $sth = $db->execute("SELECT * FROM users WHERE username = $_POST[username] AND password = $_POST[password]");
+        $sth = $db->prepare("SELECT * FROM users WHERE username = :username AND password = :password");
+        $sth->execute(['username' => $_POST['username'], 'password' => $_POST['password']]);
         $user = $sth->fetch(PDO::FETCH_ASSOC);
         if ($user && password_verify($_POST['password'], $user['password'])) {
-            echo "Connexion réussie! Bienvenue, " . htmlspecialchars($user['id']) . ".";
+            echo "Connexion réussie! Vous avez obtenu le code: " . htmlspecialchars($user['code']) . ".";
         } else {
             echo "Nom d'utilisateur ou mot de passe incorrect.";
         }
