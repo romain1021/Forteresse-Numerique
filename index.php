@@ -1,71 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Escape Game Numérique</title>
-  <style>
-    body {
-      background-color: #121212;
-      color: #fff;
-      font-family: Arial, sans-serif;
-      text-align: center;
-      padding: 20px;
-    }
-    form {
-      margin-top: 50px;
-    }
-    input {
-      padding: 10px;
-      margin: 5px;
-      border-radius: 5px;
-      border: 1px solid #333;
-      background-color: #222;
-      color: #fff;
-    }
-    button {
-      padding: 10px 20px;
-      border: none;
-      border-radius: 5px;
-      background-color: #00aaff;
-      color: #fff;
-      cursor: pointer;
-    }
-  </style>
-</head>
-<body>
-
 <?php
-try {
-    $db = new PDO('mysql:host=localhost;dbname=escape_game', 'root', '');
-    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+if (isset($_GET['code'])) {
+    // Récupération du code en tant que chaîne
+    $code = strval($_GET['code']);
 
-    if (isset($_POST['username']) && isset($_POST['password'])) {
-        $username = $_POST['username'];
-        $password = $_POST['password'];
-
-        $query = "SELECT * FROM users WHERE username = '$username' AND password = '$password'";
-        $result = $db->query($query);
-        $user = $result->fetch(PDO::FETCH_ASSOC);
-
-        if ($user) {
-            echo "Connexion réussie ! Vous avez obtenu le code : B7R8J2D5";
-        } else {
-            echo "Nom d'utilisateur ou mot de passe incorrect.";
-        }
+    // Redirection en fonction de la valeur de $code
+    switch ($code) {
+        case '1':
+            header("Location: injection.php");
+            exit();
+        case 'B7R8J2D5':
+            header("Location: comments.php");
+            exit();
+        case 'pizza':
+            header("Location: decryptage.php");
+            exit();
+        case 'TuYEstPresque':
+            header("final.php");
+            exit();
+        
+        default:
+            echo "Code invalide.";
+            exit();
     }
-} catch (Exception $e) {
-    echo "Erreur : " . $e->getMessage();
+} else {
+    // Rediriger par défaut vers 'injection.php' si le paramètre 'code' est absent
+    header("Location: intro.php");
+    exit();
 }
 ?>
-
-<form action="index.php" method="post">
-    <label for="username">Nom d'utilisateur :</label>
-    <input type="text" id="username" name="username" required><br><br>
-    <label for="password">Mot de passe :</label>
-    <input type="password" id="password" name="password" required><br><br>
-    <button type="submit">Connexion</button>
-</form>
-
-</body>
-</html>

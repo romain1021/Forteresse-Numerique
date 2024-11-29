@@ -1,0 +1,1 @@
+ecrire une intro à l'escape game avec un boutton pour commencer et lorsque le user appui sur le boutton il est renvoyé a la première page
