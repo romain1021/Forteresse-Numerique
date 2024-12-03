@@ -4,38 +4,13 @@ $code = "pizza";
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+<link rel="stylesheet" href="style.css">
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Page de Commentaires - Vulnérable</title>
 </head>
-<style>
-    body {
-      background-color: #121212;
-      color: #fff;
-      font-family: Arial, sans-serif;
-      text-align: center;
-      padding: 20px;
-    }
-    form {
-      margin-top: 50px;
-    }
-    input {
-      padding: 10px;
-      margin: 5px;
-      border-radius: 5px;
-      border: 1px solid #333;
-      background-color: #222;
-      color: #fff;
-    }
-    button {
-      padding: 10px 20px;
-      border: none;
-      border-radius: 5px;
-      background-color: #00aaff;
-      color: #fff;
-      cursor: pointer;
-    }
-  </style>
+
 <body>
     <h1>Page de Commentaires - Vulnérable</h1>
     <form method="POST" action="">

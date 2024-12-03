@@ -1,37 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<link rel="stylesheet" href="style.css">
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Escape Game Numérique</title>
-  <style>
-    body {
-      background-color: #121212;
-      color: #fff;
-      font-family: Arial, sans-serif;
-      text-align: center;
-      padding: 20px;
-    }
-    form {
-      margin-top: 50px;
-    }
-    input {
-      padding: 10px;
-      margin: 5px;
-      border-radius: 5px;
-      border: 1px solid #333;
-      background-color: #222;
-      color: #fff;
-    }
-    button {
-      padding: 10px 20px;
-      border: none;
-      border-radius: 5px;
-      background-color: #00aaff;
-      color: #fff;
-      cursor: pointer;
-    }
-  </style>
+  
 </head>
 <body>
 
@@ -52,8 +27,7 @@ try {
             echo "Connexion réussie ! Vous avez obtenu le code : B7R8J2D5";
         } else {
             echo "Nom d'utilisateur ou mot de passe incorrect.";
-        }
-    }
+        }}
 } catch (Exception $e) {
     echo "Erreur : " . $e->getMessage();
 }
@@ -74,3 +48,4 @@ if (isset($_GET['code']) && $_GET['code'] == '213311321') {
 
 </body>
 </html>
+
