@@ -11,6 +11,8 @@
 <body>
 
 <?php
+$aideImage='aide.png';
+  require_once 'aide.php';
 try {
     $db = new PDO('mysql:host=localhost;dbname=escape_game', 'root', '');
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -22,7 +24,6 @@ try {
         $query = "SELECT * FROM users WHERE username = '$username' AND password = '$password'";
         $result = $db->query($query);
         $user = $result->fetch(PDO::FETCH_ASSOC);
-
         if ($user) {
             echo "Connexion réussie ! Vous avez obtenu le code : B7R8J2D5";
         } else {

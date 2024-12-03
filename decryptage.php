@@ -1,4 +1,7 @@
 <?php
+$aideImage='aide3.jpg';
+  require_once 'aide.php';
+
 $originalPassword = "TuYEstPresque";
 $key = "google";
 $iv = substr("initvector123456", 0, 16);

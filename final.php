@@ -35,6 +35,8 @@
     <p class="result" id="result"></p>
 
     <script>
+          require_once 'aide.php';
+
         function checkAnswer() {
             // Récupérer les réponses des utilisateurs
             const answer1 = document.querySelector('input[name="answer1"]:checked')?.value;

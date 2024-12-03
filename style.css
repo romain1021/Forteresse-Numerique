@@ -113,3 +113,30 @@ video.background-video {
   font-weight: bold;
   margin-top: 40px;
 }
+.question-mark {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  font-size: 40px;
+  cursor: pointer;
+  color: #8ACE00;
+  background-color: #121212;
+  border: none;
+  padding: 10px;
+  border-radius: 50%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.question-mark:hover {
+  color: #fff;
+  background-color: #8ACE00;
+}
+
+/* Style pour l'image qui sera affichée */
+.photo {
+  display: none;
+  margin-top: 50px;
+  max-width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
+}

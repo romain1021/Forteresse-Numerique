@@ -1,4 +1,7 @@
 <?php
+$aideImage='aide2.png';
+  require_once 'aide.php';
+
 $code = "pizza";
 ?>
 <!DOCTYPE html>

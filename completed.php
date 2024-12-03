@@ -1,6 +1,6 @@
 <?php
-// Vous pouvez ajouter des vérifications ici si nécessaire, comme vérifier si l'utilisateur a terminé le quiz, etc.
-?>
+  require_once 'aide.php';
+  ?>
 <!DOCTYPE html>
 <link rel="stylesheet" href="style.css">
 <html lang="fr">
