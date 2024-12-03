@@ -1,70 +1,69 @@
-
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <link rel="stylesheet" href="style.css">
-    
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz de Sécurité - Défi 4</title>
-
-</head>
+<link rel="stylesheet" href="style.css">
 <body>
-<h1>Bienvenue dans le code source !</h1>
-<h2>tu vas enfin pouvoir reparer l'IA, pour cela tu vas devoir reparer son code affin de securiser l'acceès a son admin</h2>
+    <h1>Bienvenue dans le code source !</h1>
+    <h2>Tu vas enfin pouvoir réparer l'IA. Pour cela, tu devras corriger son code afin de sécuriser l'accès à son admin.</h2>
     <h1>Quiz : Renforcer la Sécurité</h1>
 
     <div class="tile">
-        <h2>Question 1 : Quelle est la meilleure façon de sécuriser le chiffrement ?</h2>
+        <h2>Question 1 : Comment protéger le formulaire contre l’injection SQL ?</h2>
         <form id="quiz1">
-            <label><input type="radio" name="answer" value="1"> Utiliser une clé aléatoire générée à chaque requête.</label>
-            <label><input type="radio" name="answer" value="2"> Générer un IV unique et l'associer avec le texte chiffré.</label>
-            <label><input type="radio" name="answer" value="3"> Utiliser une fonction de hachage comme `md5` pour protéger la clé.</label>
-            <button type="button" onclick="checkAnswer(1, 2)">Valider</button>
-            <p class="result" id="result1"></p>
+            <label><input type="radio" name="answer1" value="1"> Utiliser `htmlspecialchars` pour échapper les caractères spéciaux.</label>
+            <label><input type="radio" name="answer1" value="2"> Utiliser des requêtes préparées avec des instructions paramétrées.</label>
+            <label><input type="radio" name="answer1" value="3"> Remplacer les caractères spéciaux avec une fonction personnalisée.</label>
         </form>
     </div>
 
     <div class="tile">
-        <h2>Question 2 : Pourquoi l’utilisation d’un IV statique est-elle une mauvaise pratique ?</h2>
+        <h2>Question 2 : Comment protéger la page de commentaires contre les attaques XSS ?</h2>
         <form id="quiz2">
-            <label><input type="radio" name="answer" value="1"> Cela rend chaque texte chiffré unique.</label>
-            <label><input type="radio" name="answer" value="2"> Cela facilite les attaques par analyse de motifs.</label>
-            <label><input type="radio" name="answer" value="3"> Cela empêche le texte d’être déchiffré correctement.</label>
-            <button type="button" onclick="checkAnswer(2, 2)">Valider</button>
-            <p class="result" id="result2"></p>
+            <label><input type="radio" name="answer2" value="1"> Utiliser `addslashes` pour échapper les guillemets simples et doubles.</label>
+            <label><input type="radio" name="answer2" value="2"> Appliquer un filtrage des balises HTML avec `strip_tags`.</label>
+            <label><input type="radio" name="answer2" value="3"> Échapper les caractères spéciaux avec `htmlspecialchars`.</label>
         </form>
     </div>
 
     <div class="tile">
-        <h2>Question 3 : Quelle fonction utiliser pour transformer les caractères spéciaux ?</h2>
+        <h2>Question 3 : Comment renforcer la sécurité de ce système de chiffrement ?</h2>
         <form id="quiz3">
-            <label><input type="radio" name="answer" value="1"> `addslashes`</label>
-            <label><input type="radio" name="answer" value="2"> `strip_tags`</label>
-            <label><input type="radio" name="answer" value="3"> `htmlspecialchars`</label>
-            <button type="button" onclick="checkAnswer(3, 3)">Valider</button>
-            <p class="result" id="result3"></p>
+            <label><input type="radio" name="answer3" value="1"> Utiliser une clé de chiffrement aléatoire générée à chaque requête.</label>
+            <label><input type="radio" name="answer3" value="2"> Générer dynamiquement un IV aléatoire unique et le stocker avec le texte chiffré.</label>
+            <label><input type="radio" name="answer3" value="3"> Utiliser une fonction de hachage comme `md5` pour sécuriser la clé.</label>
         </form>
     </div>
+
+    <button type="button" onclick="checkAnswer()">Valider</button>
+    <p class="result" id="result"></p>
 
     <script>
-        function checkAnswer(quizId, correctAnswer) {
-            const form = document.getElementById(`quiz${quizId}`);
-            const result = document.getElementById(`result${quizId}`);
-            const answer = form.querySelector('input[name="answer"]:checked');
+        function checkAnswer() {
+            // Récupérer les réponses des utilisateurs
+            const answer1 = document.querySelector('input[name="answer1"]:checked')?.value;
+            const answer2 = document.querySelector('input[name="answer2"]:checked')?.value;
+            const answer3 = document.querySelector('input[name="answer3"]:checked')?.value;
 
-            if (!answer) {
-                result.textContent = "Veuillez sélectionner une réponse.";
-                result.style.color = "#ff0000";
-                return;
+            // Définir les réponses correctes
+            const correctAnswers = ['2', '3', '2'];
+
+            // Vérifier si toutes les réponses sont correctes
+            let allCorrect = true;
+
+            if (answer1 !== correctAnswers[0]) {
+                allCorrect = false;
+            }
+            if (answer2 !== correctAnswers[1]) {
+                allCorrect = false;
+            }
+            if (answer3 !== correctAnswers[2]) {
+                allCorrect = false;
             }
 
-            if (parseInt(answer.value) === correctAnswer) {
-                result.textContent = "Bonne réponse !";
-                result.style.color = "#00ff00";
+            // Afficher le message en fonction des résultats
+            const resultElement = document.getElementById("result");
+            if (allCorrect) {
+                window.location.href = "completed.php";
             } else {
-                result.textContent = "Mauvaise réponse. Essayez encore.";
-                result.style.color = "#ff0000";
+                resultElement.style.color = "red";
+                resultElement.innerHTML = "Mauvaise réponse. Essayez encore.";
             }
         }
     </script>

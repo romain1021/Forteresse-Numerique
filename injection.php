@@ -37,7 +37,8 @@ if (isset($_GET['code']) && $_GET['code'] == '213311321') {
     exit;
 }
 ?>
-
+<h1>Connexion a IAsuper power</h1>
+ <div class="tile">
 <form action="injection.php" method="post">
     <label for="username">Nom d'utilisateur :</label>
     <input type="text" id="username" name="username" required><br><br>
@@ -45,6 +46,7 @@ if (isset($_GET['code']) && $_GET['code'] == '213311321') {
     <input type="password" id="password" name="password" required><br><br>
     <button type="submit">Connexion</button>
 </form>
+</div>
 
 </body>
 </html>

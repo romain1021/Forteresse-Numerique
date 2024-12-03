@@ -5,13 +5,13 @@ $code = "pizza";
 <html lang="fr">
 <head>
 <link rel="stylesheet" href="style.css">
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Page de Commentaires - Vulnérable</title>
 </head>
 
 <body>
+<div class="tile">
     <h1>Page de Commentaires - Vulnérable</h1>
     <form method="POST" action="">
         <label for="comment">Votre commentaire :</label><br>
@@ -30,6 +30,7 @@ $code = "pizza";
         }
         ?>
     </div>
+</div>
 </body>
 </html>
 
