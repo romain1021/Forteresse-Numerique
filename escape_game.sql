@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 26, 2024 at 01:26 PM
+-- Generation Time: Dec 09, 2024 at 10:29 AM
 -- Server version: 8.4.2
 -- PHP Version: 8.3.12
 
@@ -20,6 +20,27 @@ SET time_zone = "+00:00";
 --
 -- Database: `escape_game`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `commentaire`
+--
+
+CREATE TABLE `commentaire` (
+  `id` int NOT NULL,
+  `content` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `commentaire`
+--
+
+INSERT INTO `commentaire` (`id`, `content`) VALUES
+(28, 'boo'),
+(29, 'I ❤️ NY'),
+(30, 'BRAT SUMMER 💚'),
+(31, 'ezdqzed');
 
 -- --------------------------------------------------------
 
@@ -47,6 +68,12 @@ INSERT INTO `users` (`id`, `username`, `password`, `code`) VALUES
 --
 
 --
+-- Indexes for table `commentaire`
+--
+ALTER TABLE `commentaire`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -55,6 +82,12 @@ ALTER TABLE `users`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `commentaire`
+--
+ALTER TABLE `commentaire`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT for table `users`
