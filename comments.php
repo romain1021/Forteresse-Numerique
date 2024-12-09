@@ -1,6 +1,6 @@
 <?php
 $aideImage='aide2.png';
-  require_once 'aide.php';
+require_once 'aide.php';
 
 $code = "pizza";
 ?>
@@ -25,16 +25,36 @@ $code = "pizza";
     <h2>Commentaires :</h2>
     <div id="comments-section">
         <?php
+        $servername = "localhost";
+        $username = "root";
+        $password = "";
+        $dbname = "escape_game";
+
+        $conn = new mysqli($servername, $username, $password, $dbname);
+
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['comment'])) {
             $comment = $_POST['comment'];
-            echo "<script>var code = '$code';</script>";
-
-            echo "<p>$comment</p>";
+            if (strpos($comment, '<script>') === false) {
+                $stmt = $conn->prepare("INSERT INTO commentaire (content) VALUES (?)");
+                $stmt->bind_param("s", $comment);
+                $stmt->execute();
+                $stmt->close();
+            } else {
+                echo "<script>alert('$code');</script>";
+            }
         }
+
+        $result = $conn->query("SELECT content FROM commentaire ORDER BY id DESC");
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                echo "<div class='bubble'>" . $row['content'] . "</div> <br>";
+            }
+        }
+
+        $conn->close();
         ?>
     </div>
 </div>
 </body>
 </html>
 
-<!-- <script>alert(code);</script> -->
