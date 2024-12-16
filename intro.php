@@ -1,39 +1,26 @@
-<link rel="stylesheet" href="style.css">
-<script src="script.js"></script>
+<?php
+session_start();
+require_once ('header.php');
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $start_time = date('Y-m-d H:i:s');
+    $_SESSION['start_time'] = $start_time;
+    header('Location: injection.php');
+    exit();
+}
+?>
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>La Forteresse Numérique</title>
-    
+    <title>intro</title>
 </head>
 <body>
-    <header>
-        <h1>La Forteresse Numérique</h1>
-        <h2>BTS SIO 2ème année</h2>
-        <h3>Cybersécurité des services informatiques</h3>
-    </header>
-
-    <section class="container">
-        <img src="DB5B802B-C0BC-42A2-8F4C-0771D4E8DA94.png" alt="Illustration de la Forteresse Numérique" width="300">
-        <div class="tile">
-        <h2>Résumé</h2>
-        <p>Plongez au cœur d'un défi technologique captivant avec <strong>La Forteresse Numérique</strong>, un escape game immersif conçu pour tester vos compétences en cybersécurité. Dans un monde contrôlé par une intelligence artificielle omniprésente, vous devrez faire preuve d'ingéniosité et de réflexion pour surmonter une série d'épreuves et retrouver votre liberté.</p>
-        </div>
-        <div class="tile">
-        <h2>Introduction</h2>
-        <p>Bienvenue dans <strong>La Forteresse Numérique</strong>, un projet unique combinant apprentissage et aventure. Imaginez-vous pris au piège dans un environnement informatique complexe, où chaque décision peut faire la différence entre le succès et l'échec. Votre mission sera de déjouer les pièges d'une IA redoutable et de démontrer votre maîtrise des concepts de cybersécurité. Préparez-vous à explorer, analyser et résoudre les mystères qui vous attendent.</p>
-</div>
-<div class="tile">
-        <p><strong>Saurez-vous relever le défi et sortir victorieux ? L'avenir est entre vos mains.</strong></p>
-    </section>
-    <form action="injection.php" method="post">
-        <button type="submit">Cliquez ici pour commencer</button>
+    <h2>Tu peux jouer en cliquant sur le bouton suivant, mais attention ! si tu appuie sur jouer, un chronomètre vas se lancer ! bon courrage </h2>
+        
+    <form method="post">
+        <button type="submit">Jouer</button>
     </form>
-</div>
-    
-    
-
 </body>
 </html>
+

@@ -12,7 +12,9 @@
 
 <?php
 $aideImage='aide.png';
+    require_once 'header.php';
   require_once 'aide.php';
+  var_dump($_SESSION['start_time']);
 try {
     $db = new PDO('mysql:host=localhost;dbname=escape_game', 'root', '');
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
