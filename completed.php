@@ -17,6 +17,6 @@
     <h1>Félicitations !</h1>
     <!-- Message final en vert -->
     <p class="final-message">Tu as sauvé le monde des méchants pirates d'IA !</p>
-
+    <p><a href="leaderboard.php"><button class="btn">Voir le classement</button></a></p>
 </body>
 </html>

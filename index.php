@@ -15,7 +15,7 @@ if (isset($_GET['code'])) {
             header("Location: decryptage.php");
             exit();
         case 'TuYEstPresque':
-            header("final.php");
+            header("location: final.php");
             exit();
         
         default:

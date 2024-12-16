@@ -1,0 +1,63 @@
+
+<!-- saved from url=(0038)http://localhost/Escape-Game/intro.php -->
+<html lang="fr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><link rel="stylesheet" href="./La Forteresse Numérique_files/style.css">
+<script src="./La Forteresse Numérique_files/script.js"></script>
+
+
+
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Forteresse Numérique</title>
+    
+<link rel="stylesheet" href="chrome-extension://emnoomldgleagdjapdeckpmebokijail/font/roboto-fonts.css" class="wtd-font"><link rel="stylesheet" href="chrome-extension://emnoomldgleagdjapdeckpmebokijail/font/unbounded-fonts.css" class="wtd-font"></head>
+<body>
+    <header>
+        
+<div id="timer" style="position: fixed; top: 10px; left: 10px; font-size: 20px; background: rgba(0, 0, 0, 0.5); color: white; padding: 5px; border-radius: 5px;">Chronomètre : 00:00</div>
+
+<br>
+<b>Warning</b>:  Undefined array key "start_time" in <b>/Users/romain/www/Escape-Game/header.php</b> on line <b>20</b><br>
+<script>
+            function updateTimer() {
+                var start_time = null;
+                var timerElement = document.getElementById('timer');
+                if (start_time !== null) {
+                    var current_time = (new Date()).getTime() / 1000;
+                    var elapsed_time = current_time - start_time;
+                    var minutes = Math.floor(elapsed_time / 60);
+                    var seconds = Math.floor(elapsed_time % 60);
+                    timerElement.textContent = 'Chronomètre : ' + String(minutes).padStart(2, '0') + ':' + String(seconds).padStart(2, '0');
+                } else {
+                    timerElement.textContent = 'Chronomètre : 00:00';
+                }
+            }
+            setInterval(updateTimer, 1000);
+          </script>                <h1>La Forteresse Numérique</h1>
+        <h2>BTS SIO 2ème année</h2>
+        <h3>Cybersécurité des services informatiques</h3>
+    </header>
+
+    <section class="container">
+        <img src="./La Forteresse Numérique_files/DB5B802B-C0BC-42A2-8F4C-0771D4E8DA94.png" alt="Illustration de la Forteresse Numérique" width="300">
+        <div class="tile">
+        <h2>Résumé</h2>
+        <p>Plongez au cœur d'un défi technologique captivant avec <strong>La Forteresse Numérique</strong>, un escape game immersif conçu pour tester vos compétences en cybersécurité. Dans un monde contrôlé par une intelligence artificielle omniprésente, vous devrez faire preuve d'ingéniosité et de réflexion pour surmonter une série d'épreuves et retrouver votre liberté.</p>
+        </div>
+        <div class="tile">
+        <h2>Introduction</h2>
+        <p>Bienvenue dans <strong>La Forteresse Numérique</strong>, un projet unique combinant apprentissage et aventure. Imaginez-vous pris au piège dans un environnement informatique complexe, où chaque décision peut faire la différence entre le succès et l'échec. Votre mission sera de déjouer les pièges d'une IA redoutable et de démontrer votre maîtrise des concepts de cybersécurité. Préparez-vous à explorer, analyser et résoudre les mystères qui vous attendent.</p>
+</div>
+<div class="tile">
+        <p><strong>Saurez-vous relever le défi et sortir victorieux ? L'avenir est entre vos mains.</strong></p>
+    </div></section>
+    <h1> N'oublie pas le système de login, a partir du moment ou tu appui sur ok tu lance le crono et le plus rapide gagne :</h1>
+    <form action="http://localhost/Escape-Game/injection.php" method="post">
+        <button type="submit" onclick="begin()">Cliquez ici pour commencer</button>
+    </form>
+
+    
+    
+
+
+
+<script id="define-custom-element-wtd-root" src="chrome-extension://emnoomldgleagdjapdeckpmebokijail/src/scripts/injected/defineCustomElementsInjected.js" data-params="{&quot;elementName&quot;:&quot;wtd-root&quot;,&quot;eventName&quot;:&quot;customElements.defined&quot;,&quot;isShadowRoot&quot;:true}"></script><wtd-root id="cashback"><template shadowrootmode="open"><div id="root"></div><link rel="stylesheet" href="chrome-extension://emnoomldgleagdjapdeckpmebokijail/style.css"></template></wtd-root><script id="define-custom-element-wtd-root" src="chrome-extension://emnoomldgleagdjapdeckpmebokijail/src/scripts/injected/defineCustomElementsInjected.js" data-params="{&quot;elementName&quot;:&quot;wtd-root&quot;,&quot;eventName&quot;:&quot;customElements.defined&quot;,&quot;isShadowRoot&quot;:true}"></script><script id="define-custom-element-wtd-div" src="chrome-extension://emnoomldgleagdjapdeckpmebokijail/src/scripts/injected/defineCustomElementsInjected.js" data-params="{&quot;elementName&quot;:&quot;wtd-div&quot;,&quot;eventName&quot;:&quot;customElements.defined&quot;,&quot;isShadowRoot&quot;:false}"></script><wtd-div id="wanteeedContainer" style="position: fixed; display: block; top: 0px; right: 0px; z-index: 2147483647;"><wtd-root id="comparator"><template shadowrootmode="open"><div id="root"><div class="pointer-events-none z-[2147483647] flex select-none flex-col items-end overflow-hidden font-sans antialiased"></div></div><link rel="stylesheet" href="chrome-extension://emnoomldgleagdjapdeckpmebokijail/style.css"></template></wtd-root><iframe id="wanteeedPanel" data-version="2.129.2" allowtransparency="true" style="background-color: rgb(255, 255, 255); border: none; border-radius: 3px; box-shadow: rgb(181, 181, 181) 1px 1px 3px 2px; clip: auto; display: none; margin-left: auto; margin-right: 12px; margin-top: 12px; position: relative; z-index: 2147483647; height: 1px; width: 1px;" src="./La Forteresse Numérique_files/saved_resource.html"></iframe></wtd-div><script id="define-custom-element-wtd-root" src="chrome-extension://emnoomldgleagdjapdeckpmebokijail/src/scripts/injected/defineCustomElementsInjected.js" data-params="{&quot;elementName&quot;:&quot;wtd-root&quot;,&quot;eventName&quot;:&quot;customElements.defined&quot;,&quot;isShadowRoot&quot;:true}"></script></body></html>

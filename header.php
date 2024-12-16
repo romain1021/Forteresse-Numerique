@@ -1,92 +1,41 @@
 <?php
-if (!isset($_SESSION['start_time'])) {
-    $_SESSION['start_time'] = date('Y-m-d H:i:s');
+session_start();
+
+// Fonction pour démarrer le chronomètre
+function start_timer() {
+    $_SESSION['start_time'] = microtime(true);  // Réinitialise l'heure de départ
 }
-$start_time = strtotime($_SESSION['start_time']);
-$current_time = time();
-$elapsed_time = $current_time - $start_time;
-$minutes = floor($elapsed_time / 60);
-$seconds = $elapsed_time % 60;
+
+// Fonction pour arrêter le chronomètre
+function stop_timer() {
+    if (isset($_SESSION['start_time'])) {
+        unset($_SESSION['start_time']);  // Arrête le chronomètre en réinitialisant l'heure de départ
+    }
+}
+
+// Fonction pour afficher le chronomètre via JavaScript
+function display_timer() {
+    echo "<script>
+            function updateTimer() {
+                var start_time = " . ($_SESSION['start_time'] !== null ? $_SESSION['start_time'] : 'null') . ";
+                var timerElement = document.getElementById('timer');
+                if (start_time !== null) {
+                    var current_time = (new Date()).getTime() / 1000;
+                    var elapsed_time = current_time - start_time;
+                    var minutes = Math.floor(elapsed_time / 60);
+                    var seconds = Math.floor(elapsed_time % 60);
+                    timerElement.textContent = 'Chronomètre : ' + String(minutes).padStart(2, '0') + ':' + String(seconds).padStart(2, '0');
+                } else {
+                    timerElement.textContent = 'Chronomètre : 00:00';
+                }
+            }
+            setInterval(updateTimer, 1000);
+          </script>";
+}
+
 ?>
 
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mon Site</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: Arial, sans-serif;
-            background: #f4f4f4;
-        }
-        header {
-            background: linear-gradient(135deg, #007bff, #00c6ff);
-            color: white;
-            padding: 20px 40px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .logo {
-            font-size: 24px;
-            font-weight: bold;
-        }
-        nav ul {
-            list-style: none;
-            display: flex;
-        }
-        nav ul li {
-            margin-left: 20px;
-        }
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            font-size: 18px;
-            transition: color 0.3s ease;
-        }
-        nav ul li a:hover {
-            color: #ffe600;
-        }
-        .timer {
-            font-size: 20px;
-            font-weight: bold;
-            background: rgba(255, 255, 255, 0.2);
-            padding: 5px 15px;
-            border-radius: 5px;
-        }
-    </style>
-</head>
-<body>
-<header>
-    <div class="logo">Mon Site</div>
-    <nav>
-        <ul>
-            <li><a href="#">Accueil</a></li>
-            <li><a href="#">À propos</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">Contact</a></li>
-        </ul>
-    </nav>
-    <div class="timer" id="timer-header"><?php echo sprintf('%d:%02d', $minutes, $seconds); ?></div>
-</header>
+<div id="timer" style="position: fixed; top: 10px; left: 10px; font-size: 20px; background: rgba(0, 0, 0, 0.5); color: white; padding: 5px; border-radius: 5px;">Chronomètre : 00:00</div>
 
-<script>
-    let elapsedSeconds = <?php echo $elapsed_time; ?>;
-
-    function updateHeaderTimer() {
-        elapsedSeconds++;
-        const minutes = Math.floor(elapsedSeconds / 60);
-        const seconds = elapsedSeconds % 60;
-        document.getElementById("timer-header").textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
-    }
-
-    setInterval(updateHeaderTimer, 1000);
-</script>
-</body>
-</html>
+<?php
+display_timer();

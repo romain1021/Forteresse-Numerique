@@ -10,7 +10,8 @@
 </head>
 <body>
     <header>
-        <h1>La Forteresse Numérique</h1>
+        <?php require_once 'header.php'; ?>
+                <h1>La Forteresse Numérique</h1>
         <h2>BTS SIO 2ème année</h2>
         <h3>Cybersécurité des services informatiques</h3>
     </header>
@@ -34,7 +35,10 @@
     </form>
 </div>
 <?php
+stop_timer();
 function begin() {
+    start_timer();
+
     $servername = "localhost";
     $username = "root";
     $password = "";
